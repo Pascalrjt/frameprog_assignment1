@@ -99,8 +99,9 @@ class Inventory {
     }
 }
 
-$newPhone = new MobilePhone("Samsung Galaxy A24", "Samsung", "600", "20", "Android");
-echo $newPhone->getName();
+// Testing
+//$newPhone = new MobilePhone("Samsung Galaxy A24", "Samsung", "600", "20", "Android");
+//echo $newPhone->getName();
 
 // Create an inventory
 $inventory = new Inventory();
