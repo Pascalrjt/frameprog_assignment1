@@ -105,21 +105,22 @@ echo $newPhone->getName();
 // Create an inventory
 $inventory = new Inventory();
 
-// Add phones to the inventory
-$phone1 = new MobilePhone("Samsung Galaxy A24", "Samsung", "600", "20", "Android");
-$phone2 = new MobilePhone("iPhone 12", "Apple", "800", "15", "iOS");
+// Adding more phones to the inventory
+$phone3 = new MobilePhone("Google Pixel 5", "Google", "700", "10", "Android");
+$phone4 = new MobilePhone("OnePlus 9", "OnePlus", "750", "12", "Android");
 
-$inventory->addPhone($phone1);
-$inventory->addPhone($phone2);
+$inventory->addPhone($phone3);
+$inventory->addPhone($phone4);
 
-// List phones in the inventory
+// List phones in the inventory with the new phones
 $phonesInInventory = $inventory->getInventory();
+echo "Phones in the inventory:\n";
 foreach ($phonesInInventory as $phone) {
     echo "Name: " . $phone->getName() . ", Brand: " . $phone->getBrand() . ", Price: " . $phone->getPrice() . "\n";
 }
 
 // Delete a phone from the inventory by name
-$deleted = $inventory->deletePhoneByName("Samsung Galaxy A24");
+$deleted = $inventory->deletePhoneByName("iPhone 12");
 
 if ($deleted) {
     echo "Phone deleted successfully.\n";
@@ -129,5 +130,7 @@ if ($deleted) {
 
 // List phones in the inventory after deletion
 $phonesInInventory = $inventory->getInventory();
+echo "Phones in the inventory after deletion:\n";
 foreach ($phonesInInventory as $phone) {
-    echo "Name: " . $phone->getName() . ", Brand: " . $phone->getBrand() . ", Price
+    echo "Name: " . $phone->getName() . ", Brand: " . $phone->getBrand() . ", Price: " . $phone->getPrice() . "\n";
+}
