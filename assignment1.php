@@ -101,3 +101,33 @@ class Inventory {
 
 $newPhone = new MobilePhone("Samsung Galaxy A24", "Samsung", "600", "20", "Android");
 echo $newPhone->getName();
+
+// Create an inventory
+$inventory = new Inventory();
+
+// Add phones to the inventory
+$phone1 = new MobilePhone("Samsung Galaxy A24", "Samsung", "600", "20", "Android");
+$phone2 = new MobilePhone("iPhone 12", "Apple", "800", "15", "iOS");
+
+$inventory->addPhone($phone1);
+$inventory->addPhone($phone2);
+
+// List phones in the inventory
+$phonesInInventory = $inventory->getInventory();
+foreach ($phonesInInventory as $phone) {
+    echo "Name: " . $phone->getName() . ", Brand: " . $phone->getBrand() . ", Price: " . $phone->getPrice() . "\n";
+}
+
+// Delete a phone from the inventory by name
+$deleted = $inventory->deletePhoneByName("Samsung Galaxy A24");
+
+if ($deleted) {
+    echo "Phone deleted successfully.\n";
+} else {
+    echo "Phone not found in the inventory.\n";
+}
+
+// List phones in the inventory after deletion
+$phonesInInventory = $inventory->getInventory();
+foreach ($phonesInInventory as $phone) {
+    echo "Name: " . $phone->getName() . ", Brand: " . $phone->getBrand() . ", Price
