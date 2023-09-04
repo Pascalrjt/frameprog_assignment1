@@ -73,6 +73,26 @@ class MobilePhone implements Thing {
     }
 }
 
+class PhoneCamera extends MobilePhone {
+    private $cameraMP;
+    private $cameraSensor;
+
+    public function __construct($name, $brand, $price, $stock, $os=null, $cameraMP, $cameraSensor) {
+        parent::__construct($name, $brand, $price, $stock, $os=null);
+        $this->cameraMP = $cameraMP;
+        $this->cameraSensor = $cameraSensor;
+    }
+
+    public function getCameraMP() {
+        return $this->cameraMP;
+    }
+
+    public function getCameraSensor() {
+        return $this->cameraSensor;
+    }
+}
+
+
 class Inventory {
     private $phones = []; // An array to store phone objects
 
@@ -107,8 +127,8 @@ class Inventory {
 $inventory = new Inventory();
 
 // Adding more phones to the inventory
-$phone3 = new MobilePhone("Google Pixel 5", "Google", "700", "10", "Android");
-$phone4 = new MobilePhone("OnePlus 9", "OnePlus", "750", "12", "Android");
+$phone3 = new MobilePhone("Google Pixel 5", "Google", "700", "10", "Android", "12", "IMX285");
+$phone4 = new MobilePhone("OnePlus 9", "OnePlus", "750", "12", "Android", "48", "IMX765");
 
 $inventory->addPhone($phone3);
 $inventory->addPhone($phone4);
